@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlowBeauty - Skincare & Cosmetics</title>
+  <style>
+    * {box-sizing: border-box; margin:0; padding:0;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff7fb;
+      color:#333;
+    }
+    header {
+      display:flex; justify-content:space-between; align-items:center;
+      background:white; padding:15px 40px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      position:sticky; top:0; z-index:100;
+    }
+    header h1 {
+      color:#e91e63;
+      font-size:1.8rem;
+      display:flex; align-items:center; gap:8px;
+    }
+    nav a {
+      margin:0 15px;
+      text-decoration:none;
+      color:#555;
+      font-weight:500;
+      transition:0.2s;
+    }
+    nav a:hover { color:#e91e63; }
+    .hero {
+      background: linear-gradient(135deg,#f8bbd0,#fce4ec);
+      text-align:center; padding:80px 20px;
+    }
+    .hero h2 {color:#e91e63; font-size:2.8rem;}
+    .hero p {margin:15px 0 25px; font-size:1.1rem;}
+    .hero button {
+      background:#e91e63; color:white; border:none;
+      padding:12px 24px; border-radius:6px; font-size:1rem;
+      cursor:pointer; transition:0.2s;
+    }
+    .hero button:hover { background:#d81b60; }
+
+    .products {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:25px; padding:50px;
+    }
+    .product {
+      background:white; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      text-align:center; padding:15px; transition:transform 0.2s;
+    }
+    .product:hover {transform:translateY(-5px);}
+    .product img {
+      width:100%; height:220px; object-fit:cover;
+      border-radius:10px;
+    }
+    .product h3 {margin:10px 0 5px; color:#e91e63;}
+    .product p {margin:5px 0;}
+    .product button {
+      background:#e91e63; color:white; border:none; border-radius:5px;
+      padding:8px 15px; margin-top:8px; cursor:pointer; transition:0.2s;
+    }
+    .product button:hover { background:#d81b60; }
+
+    .cart, .checkout {
+      padding:40px 50px;
+    }
+    .cart h2, .checkout h2 {
+      color:#e91e63; margin-bottom:15px;
+    }
+    table {
+      width:100%; border-collapse:collapse; margin-top:20px;
+    }
+    th, td {
+      border-bottom:1px solid #ddd; text-align:left; padding:10px;
+    }
+    #total {margin-top:10px; font-weight:bold;}
+    form input, form select {
+      width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:5px;
+    }
+    form button {
+      background:#e91e63; color:white; border:none; padding:12px 24px;
+      border-radius:6px; cursor:pointer; font-size:1rem;
+    }
+    form button:hover {background:#d81b60;}
+    footer {
+      text-align:center; padding:20px; background:#fff0f5; color:#777; margin-top:40px;
+    }
+    @media(max-width:600px){
+      header{flex-direction:column; gap:10px;}
+      .hero h2{font-size:2rem;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💖 GlowBeauty</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#cart">Cart</a>
+      <a href="#checkout">Checkout</a>
+    </nav>
+  </header>
+
+  <!-- Homepage -->
+  <section id="home" class="hero">
+    <h2>Welcome to GlowBeauty</h2>
+    <p>Discover premium skincare and beauty essentials made for glowing confidence.</p>
+    <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+  </section>
+
+  <!-- Product Listing -->
+  <section id="products" class="products">
+    <!-- 15 products -->
+  </section>
+
+  <!-- Cart -->
+  <section id="cart" class="cart">
+    <h2>Your Shopping Cart</h2>
+    <table id="cartTable"><tr><th>Product</th><th>Price</th></tr></table>
+    <p id="total">Total: $0</p>
+  </section>
+
+  <!-- Checkout -->
+  <section id="checkout" class="checkout">
+    <h2>Checkout</h2>
+    <form onsubmit="event.preventDefault(); alert('Payment successful! 💖 Thank you for shopping at GlowBeauty.');">
+      <label>Full Name</label>
+      <input type="text" required>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Shipping Address</label>
+      <input type="text" required>
+      <label>Payment Method</label>
+      <select required>
+        <option value="">Select</option>
+        <option>Credit Card</option>
+        <option>PayPal</option>
+        <option>M-Pesa</option>
+      </select>
+      <button type="submit">Complete Payment</button>
+    </form>
+  </section>
+
+  <footer>© 2025 GlowBeauty — All rights reserved.</footer>
+
+  <script>
+    // 15 sample products
+    const products = [
+      {name:"Hydrating Serum", price:25, img:"https://images.pexels.com/photos/8945928/pexels-photo-8945928.jpeg"},
+      {name:"Face Cleanser", price:18, img:"https://images.pexels.com/photos/15569180/pexels-photo-15569180.jpeg"},
+      {name:"Sunscreen SPF 50", price:22, img:"https://images.pexels.com/photos/28112145/pexels-photo-28112145.jpeg"},
+      {name:"Moisturizing Cream", price:30, img:"https://images.pexels.com/photos/7321549/pexels-photo-7321549.jpeg"},
+      {name:"Vitamin C Serum", price:28, img:"https://images.pexels.com/photos/28255124/pexels-photo-28255124.jpeg"},
+      {name:"Aloe Vera Gel", price:16, img:"https://images.pexels.com/photos/15441638/pexels-photo-15441638.jpeg"},
+      {name:"Lip Balm", price:8, img:"https://images.pexels.com/photos/8129909/pexels-photo-8129909.jpeg"},
+      {name:"Eye Cream", price:26, img:"https://images.pexels.com/photos/2720447/pexels-photo-2720447.jpeg"},
+      {name:"Body Lotion", price:20, img:"https://images.pexels.com/photos/9775220/pexels-photo-9775220.jpeg"},
+      {name:"Facial Toner", price:19, img:"https://images.pexels.com/photos/20382236/pexels-photo-20382236.jpeg"},
+      {name:"Clay Mask", price:24, img:"https://images.pexels.com/photos/7321357/pexels-photo-7321357.jpeg"},
+      {name:"Hair Serum", price:27, img:"https://images.pexels.com/photos/18186236/pexels-photo-18186236.jpeg"},
+      {name:"Makeup Remover", price:15, img:"https://images.pexels.com/photos/8558290/pexels-photo-8558290.jpeg"},
+      {name:"Hand Cream", price:10, img:"https://images.pexels.com/photos/3680203/pexels-photo-3680203.jpeg"},
+      {name:"Face Scrub", price:21, img:"https://images.pexels.com/photos/17721573/pexels-photo-17721573.jpeg"}
+    ];
+
+    const productContainer = document.querySelector('.products');
+    const cart = [];
+    const cartTable = document.getElementById('cartTable');
+    const totalDisplay = document.getElementById('total');
+
+    function renderProducts() {
+      products.forEach(p=>{
+        const div=document.createElement('div');
+        div.className='product';
+        div.innerHTML=`
+          <img src='${p.img}?auto=format&fit=crop&w=400&q=80' alt='${p.name}'>
+          <h3>${p.name}</h3>
+          <p>$${p.price}</p>
+          <button onclick=\"addToCart('${p.name}', ${p.price})\">Add to Cart</button>
+        `;
+        productContainer.appendChild(div);
+      });
+    }
+
+    function addToCart(name,price){
+      cart.push({name,price});
+      updateCart();
+    }
+
+    function updateCart(){
+      cartTable.innerHTML='<tr><th>Product</th><th>Price</th></tr>';
+      let total=0;
+      cart.forEach(item=>{
+        const row=document.createElement('tr');
+        row.innerHTML=`<td>${item.name}</td><td>$${item.price}</td>`;
+        cartTable.appendChild(row);
+        total+=item.price;
+      });
+      totalDisplay.textContent=`Total: $${total}`;
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>
